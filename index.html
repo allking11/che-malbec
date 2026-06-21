@@ -3,122 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Che Malbec Mercado & Wine Bar - Vinos argentinos, degustaciones guiadas, catas por pasos y picadas caseras en un edificio histórico de Buenos Aires.">
+    <meta name="description" content="Che Malbec Mercado & Wine Bar - Vinos argentinos, degustaciones guiadas y picadas gourmet en un espacio boutique íntimo de Buenos Aires.">
     <title>Che Malbec Mercado & Wine Bar</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
     
-    <!-- FontAwesome for standard premium icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Lucide Icons for modern, clean line design -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-static@0.1.0/font/lucide.min.css">
 </head>
 <body>
 
-    <!-- Header / Navegación -->
-    <header class="main-header">
+    <!-- Header Navigation -->
+    <header class="main-header" id="header">
         <div class="header-container">
-            <a href="#inicio" class="logo-link" id="nav-logo-link">
-                <img src="logo.png" alt="Che Malbec Logo" class="header-logo">
+            <a href="#inicio" class="logo-link">
+                <img src="logo.png" alt="Che Malbec" class="header-logo">
             </a>
             
-            <button class="mobile-nav-toggle" aria-label="Menu" id="btn-mobile-toggle">
-                <i class="fa-solid fa-bars-staggered"></i>
+            <button class="mobile-nav-toggle" aria-label="Abrir menú" id="mobile-toggle">
+                <i class="lucide-align-right"></i>
             </button>
 
-            <nav class="nav-menu" id="navigation-menu">
+            <nav class="nav-menu" id="nav-menu">
                 <ul>
                     <li><a href="#inicio" class="nav-item">Inicio</a></li>
                     <li><a href="#experiencia" class="nav-item">Experiencia</a></li>
                     <li><a href="#carta" class="nav-item">Carta</a></li>
                     <li><a href="#ubicacion" class="nav-item">Ubicación</a></li>
                 </ul>
-                <a href="https://wa.me/541128481233?text=Hola%20Che%20Malbec%20%F0%9F%91%8B%20Quiero%20consultar%20por%20una%20degustaci%C3%B3n%20%2F%20reserva." target="_blank" rel="noopener noreferrer" class="btn btn-primary nav-btn" id="nav-cta-btn">
-                    Reservar
+                <a href="https://wa.me/541128481233?text=Hola%20Che%20Malbec%20%F0%9F%91%8B%20Quiero%20consultar%20por%20una%20degustaci%C3%B3n%20%2F%20reserva." target="_blank" rel="noopener noreferrer" class="btn btn-primary nav-btn">
+                    Reservar Mesa
                 </a>
             </nav>
         </div>
     </header>
 
-    <!-- SECTION 1 — Hero -->
+    <!-- SECTION 1 — Hero (Split Screen) -->
     <section id="inicio" class="hero-section">
         <div class="container hero-container">
             <div class="hero-content reveal">
-                <span class="eyebrow">Wine Bar Boutique</span>
+                <span class="eyebrow-accent">Wine Bar Boutique</span>
                 <h1 class="hero-title">El vino argentino se disfruta mejor cuando se comparte</h1>
-                <p class="hero-subtitle">Degustaciones guiadas, vinos boutique y gastronomía casera en un wine bar íntimo en el corazón de Buenos Aires.</p>
-                <div class="hero-ctas">
-                    <a href="https://wa.me/541128481233?text=Hola%20Che%20Malbec%20%F0%9F%91%8B%20Quiero%20consultar%20por%20una%20degustaci%C3%B3n%20%2F%20reserva." target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="hero-primary-cta">
-                        <i class="fa-brands fa-whatsapp"></i> Reservar por WhatsApp
+                <p class="hero-subtitle">Degustaciones guiadas, vinos boutique y gastronomía casera en un espacio íntimo en el corazón de Buenos Aires.</p>
+                <div class="hero-actions">
+                    <a href="https://wa.me/541128481233?text=Hola%20Che%20Malbec%20%F0%9F%91%8B%20Quiero%20consultar%20por%20una%20degustaci%C3%B3n%20%2F%20reserva." target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                        Reservar por WhatsApp
                     </a>
-                    <a href="#experiencia" class="btn btn-secondary" id="hero-secondary-cta">
-                        Ver la experiencia
+                    <a href="#experiencia" class="btn btn-secondary">
+                        Explorar Experiencia
                     </a>
                 </div>
             </div>
-            <div class="hero-visual reveal delay-1">
-                <div class="image-frame">
-                    <img src="foto del frente del local.jpg" alt="Frente de Che Malbec en Avenida de Mayo" class="hero-img">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 2 — Prueba social -->
-    <section class="trust-section reveal">
-        <div class="container trust-container">
-            <div class="trust-grid">
-                <div class="trust-image">
-                    <img src="clientes comiendo en el local.jpg" alt="Clientes disfrutando en Che Malbec" class="rounded-img">
-                </div>
-                <div class="trust-content">
-                    <span class="stars">★★★★★</span>
-                    <h2 class="trust-title">Una experiencia elegida por cientos de amantes del vino</h2>
-                    <p class="trust-text">Más de 1.100 reseñas de Google respaldan nuestra pasión por brindar momentos auténticos y memorables en Buenos Aires.</p>
-                    <a href="#experiencia" class="btn btn-secondary text-btn" id="trust-cta-link">
-                        Conocer la experiencia <i class="fa-solid fa-arrow-right-long"></i>
-                    </a>
+            <div class="hero-image-wrapper reveal delay-1">
+                <div class="image-container-ratio aspect-4-5">
+                    <img src="foto del frente del local.jpg" alt="Fachada histórica de Che Malbec en Avenida de Mayo" class="fluid-img cover-position-center">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 3 — La experiencia Che Malbec -->
+    <!-- SECTION 2 — Social Proof -->
+    <section class="social-proof-section reveal">
+        <div class="container social-proof-container">
+            <div class="proof-grid">
+                <div class="proof-image-wrapper">
+                    <div class="image-container-ratio aspect-16-10">
+                        <img src="clientes comiendo en el local.jpg" alt="Momentos compartidos en Che Malbec" class="fluid-img">
+                    </div>
+                </div>
+                <div class="proof-text-content">
+                    <div class="stars-rating">
+                        <i class="lucide-star fill-gold"></i>
+                        <i class="lucide-star fill-gold"></i>
+                        <i class="lucide-star fill-gold"></i>
+                        <i class="lucide-star fill-gold"></i>
+                        <i class="lucide-star fill-gold"></i>
+                    </div>
+                    <blockquote class="proof-quote">"Una atmósfera íntima y una atención excelente. El lugar perfecto en Buenos Aires para descubrir etiquetas boutique que no se encuentran en los supermercados tradicionales."</blockquote>
+                    <p class="proof-source">Más de 1.100 reseñas en Google con calificación de 4.8 estrellas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3 — La Experiencia Che Malbec -->
     <section id="experiencia" class="experience-section">
-        <div class="container experience-container">
-            <div class="experience-header reveal">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="eyebrow-accent">Propuesta</span>
                 <h2 class="section-title">Mucho más que tomar una copa de vino</h2>
-                <p class="section-lead">Un espacio creado para disfrutar vinos argentinos, compartir una buena mesa y aprender sobre cada etiqueta en un ambiente relajado.</p>
+                <p class="section-description">Un espacio creado para disfrutar vinos argentinos, compartir una buena mesa y aprender sobre cada etiqueta en un ambiente relajado.</p>
             </div>
+            
             <div class="experience-grid">
-                <div class="experience-item reveal">
-                    <div class="exp-icon-box">
-                        <i class="fa-solid fa-wine-glass-empty"></i>
-                    </div>
-                    <h3>Vinos elegidos con criterio</h3>
-                    <p>Etiquetas argentinas seleccionadas minuciosamente para descubrir nuevos productores y cepajes únicos de nuestra tierra.</p>
+                <div class="experience-column reveal">
+                    <span class="step-number">01</span>
+                    <h3 class="column-title">Vinos elegidos con criterio</h3>
+                    <p class="column-text">Etiquetas argentinas y de pequeños productores seleccionadas cuidadosamente para descubrir nuevos sabores fuera del circuito comercial masivo.</p>
                 </div>
-                <div class="experience-item reveal delay-1">
-                    <div class="exp-icon-box">
-                        <i class="fa-solid fa-book-open-reader"></i>
-                    </div>
-                    <h3>Degustaciones con historia</h3>
-                    <p>Aprendé y disfrutá cada copa en una experiencia guiada de manera descontracturada y sin tecnicismos complejos.</p>
+                
+                <div class="experience-column reveal delay-1">
+                    <span class="step-number">02</span>
+                    <h3 class="column-title">Degustaciones con historia</h3>
+                    <p class="column-text">Aprendé y disfrutá de cada copa en una experiencia guiada donde te contamos el origen, el suelo y la historia de cada botella de manera cercana.</p>
                 </div>
-                <div class="experience-item reveal delay-2">
-                    <div class="exp-icon-box">
-                        <i class="fa-solid fa-utensils"></i>
-                    </div>
-                    <h3>Un lugar para quedarse</h3>
-                    <p>Picadas abundantes, empanadas caseras y embutidos seleccionados para crear el maridaje perfecto en cada encuentro.</p>
+                
+                <div class="experience-column reveal delay-2">
+                    <span class="step-number">03</span>
+                    <h3 class="column-title">Un lugar para quedarse</h3>
+                    <p class="column-text">Picadas gourmet, empanadas caseras de autor y tablas de quesos seleccionados para crear un maridaje auténticamente porteño.</p>
                 </div>
             </div>
-            <div class="experience-featured-img reveal">
-                <img src="copadevino.jpg" alt="Copa de vino malbec servida en Che Malbec" class="featured-banner-img">
+
+            <div class="featured-media-block reveal">
+                <div class="image-container-ratio aspect-21-9">
+                    <img src="copadevino.jpg" alt="Detalle de copa de vino en Che Malbec" class="fluid-img">
+                </div>
             </div>
         </div>
     </section>
@@ -126,125 +132,174 @@
     <!-- SECTION 4 — Degustaciones -->
     <section class="degustaciones-section">
         <div class="container">
-            <div class="degustaciones-header text-center reveal">
-                <span class="eyebrow">Catas & Encuentros</span>
-                <h2 class="section-title">Experiencias guiadas para descubrir</h2>
+            <div class="section-header text-center reveal">
+                <span class="eyebrow-accent">Servicios</span>
+                <h2 class="section-title">Experiencias y Degustaciones</h2>
             </div>
+            
             <div class="cards-grid">
-                <!-- Card 1 -->
-                <div class="c-card reveal">
-                    <div class="c-card-body">
-                        <h3>Degustaciones guiadas</h3>
-                        <p>Vinos seleccionados exclusivamente para recorrer diferentes terruños argentinos y entrenar tu paladar.</p>
+                <div class="degustacion-card reveal">
+                    <div class="card-top">
+                        <span class="card-tag">Exclusivo</span>
+                        <h3 class="card-title">Degustaciones guiadas</h3>
                     </div>
-                    <div class="c-card-footer">
-                        <span class="card-detail">Consultar fechas</span>
-                    </div>
-                </div>
-                <!-- Card 2 -->
-                <div class="c-card reveal delay-1">
-                    <div class="c-card-body">
-                        <h3>Catas por pasos</h3>
-                        <p>Una experiencia de inmersión total pensada para explorar distintas etiquetas de una misma cepa o bodega.</p>
-                    </div>
-                    <div class="c-card-footer">
-                        <span class="card-detail">Grupos reducidos</span>
+                    <p class="card-body-text">Vinos seleccionados por sommeliers para descubrir la riqueza de distintas regiones vinícolas de Argentina.</p>
+                    <div class="card-bottom">
+                        <span class="card-action">Consultar disponibilidad <i class="lucide-arrow-right"></i></span>
                     </div>
                 </div>
-                <!-- Card 3 -->
-                <div class="c-card reveal delay-2">
-                    <div class="c-card-body">
-                        <h3>Maridajes</h3>
-                        <p>Armonía perfecta entre tablas de quesos premium, fiambres artesanales y la mejor selección de tintos y blancos.</p>
+
+                <div class="degustacion-card reveal delay-1">
+                    <div class="card-top">
+                        <span class="card-tag">Inmersión</span>
+                        <h3 class="card-title">Catas por pasos</h3>
                     </div>
-                    <div class="c-card-footer">
-                        <span class="card-detail">Acompañamiento casero</span>
+                    <p class="card-body-text">Una exploración guiada a través de diferentes cosechas y varietales seleccionados para paladares curiosos.</p>
+                    <div class="card-bottom">
+                        <span class="card-action">Consultar disponibilidad <i class="lucide-arrow-right"></i></span>
+                    </div>
+                </div>
+
+                <div class="degustacion-card reveal delay-2">
+                    <div class="card-top">
+                        <span class="card-tag">Gourmet</span>
+                        <h3 class="card-title">Maridajes sugeridos</h3>
+                    </div>
+                    <p class="card-body-text">El complemento perfecto: picadas artesanales, empanadas y quesos finos combinados con etiquetas ideales.</p>
+                    <div class="card-bottom">
+                        <span class="card-action">Consultar disponibilidad <i class="lucide-arrow-right"></i></span>
                     </div>
                 </div>
             </div>
-            <div class="text-center mt-4 reveal">
-                <a href="https://wa.me/541128481233?text=Hola%20Che%20Malbec%20%F0%9F%91%8B%20Quiero%20consultar%20por%20las%20degustaciones." target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="degustaciones-cta">
-                    Consultar degustaciones
+
+            <div class="text-center mt-6 reveal">
+                <a href="https://wa.me/541128481233?text=Hola%20Che%20Malbec%20%F0%9F%91%8B%20Quiero%20consultar%20por%20una%20degustaci%C3%B3n%20%2F%20reserva." target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                    Consultar Degustaciones
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 5 — Carta / Productos -->
+    <!-- SECTION 5 — Carta / Menú -->
     <section id="carta" class="carta-section">
         <div class="container carta-container">
-            <div class="carta-grid">
-                <div class="carta-image reveal">
-                    <img src="plato, burrata.jpg" alt="Burrata premium con jamón crudo y rúcula" class="rounded-img">
+            <div class="carta-details-block reveal">
+                <span class="eyebrow-accent">Propuesta Gastronómica</span>
+                <h2 class="section-title">Vinos y sabores para compartir</h2>
+                <p class="section-description">Nuestra cocina es artesanal y honesta. Diseñamos la carta para acompañar y elevar la experiencia de cada copa de vino.</p>
+                
+                <div class="menu-list">
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="item-name">Vinos por Copa y Botella</span>
+                            <span class="item-divider"></span>
+                            <span class="item-spec">Selección</span>
+                        </div>
+                        <p class="item-desc">Etiquetas boutique de regiones seleccionadas de Mendoza, Salta y la Patagonia.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="item-name">Tablas de Quesos y Fiambres</span>
+                            <span class="item-divider"></span>
+                            <span class="item-spec">Premium</span>
+                        </div>
+                        <p class="item-desc">Variedad de quesos duros, semiduros y fiambres ahumados artesanales.</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <span class="item-name">Empanadas Caseras</span>
+                            <span class="item-divider"></span>
+                            <span class="item-spec">Hechas a mano</span>
+                        </div>
+                        <p class="item-desc">Receta tradicional al horno con rellenos jugosos e ingredientes seleccionados.</p>
+                    </div>
                 </div>
-                <div class="carta-content reveal">
-                    <span class="eyebrow">Sabores Porteños</span>
-                    <h2 class="section-title">Vinos y sabores para compartir</h2>
-                    <p class="section-text">Descubrí nuestra propuesta gastronomía artesanal pensada para acompañar cada etiqueta y realzar su sabor en una mesa compartida.</p>
-                    <ul class="proposal-list">
-                        <li><i class="fa-solid fa-circle-check"></i> Vinos por copa y botellas seleccionadas</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Degustaciones guiadas y catas por pasos</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Picadas y tablas de quesos y fiambres premium</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Empanadas caseras tradicionales</li>
-                    </ul>
-                    <a href="https://wa.me/541128481233?text=Hola%20Che%20Malbec%20%F0%9F%91%8B%20Quiero%20consultar%20la%20carta%20de%20vinos%20y%20comidas." target="_blank" rel="noopener noreferrer" class="btn btn-secondary" id="carta-cta-btn">
-                        Consultar carta completa
-                    </a>
+
+                <a href="https://wa.me/541128481233?text=Hola%20Che%20Malbec%20%F0%9F%91%8B%20Quiero%20consultar%20por%20la%20carta%20completa." target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                    Ver Carta Completa
+                </a>
+            </div>
+            <div class="carta-image-block reveal">
+                <div class="image-container-ratio aspect-4-5">
+                    <img src="plato, burrata.jpg" alt="Burrata fresca servida en Che Malbec" class="fluid-img">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 6 — Historia / Marca -->
+    <!-- SECTION 6 — Historia -->
     <section class="history-section">
         <div class="container">
-            <div class="history-grid">
-                <div class="history-content reveal">
-                    <span class="eyebrow">Nuestra Esencia</span>
+            <div class="history-split reveal">
+                <div class="history-text">
+                    <span class="eyebrow-accent">El Origen</span>
                     <h2 class="section-title">Una pasión convertida en experiencia</h2>
-                    <p class="section-text">Che Malbec nació con una idea simple: acercar el mundo del vino a todos, sin vueltas y en un ambiente cálido.</p>
-                    <p class="section-text">Fundado y liderado por Julián, lo que comenzó como un hobby de venta de etiquetas evolucionó tras un inspirador viaje a Italia. Hoy es un espacio íntimo en un edificio histórico, pensado para compartir catas relajadas y vinos boutique en plena ciudad.</p>
+                    <p class="history-p">Che Malbec nació de una curiosidad simple: descubrir el mundo del vino y compartir esa pasión con otros. El proyecto fundado y liderado por Julián comenzó como una venta de vinos personalizada como hobby y evolucionó tras un viaje inspirador a Italia.</p>
+                    <p class="history-p">Hoy, es un wine bar boutique e íntimo dentro de un edificio histórico de Buenos Aires, pensado para disfrutar catas relajadas y etiquetas de alta calidad.</p>
                 </div>
-                <div class="history-visual reveal">
-                    <div class="history-gallery">
-                        <div class="gallery-item"><img src="historia 1.jpg" alt="Origen del proyecto"></div>
-                        <div class="gallery-item"><img src="historia 2.jpg" alt="Inspiración en el viaje"></div>
-                        <div class="gallery-item"><img src="historia 3.jpg" alt="Selección de etiquetas"></div>
-                        <div class="gallery-item"><img src="historia 4.jpg" alt="Apertura del local"></div>
+                <div class="history-gallery-wrapper">
+                    <div class="history-timeline-grid">
+                        <div class="timeline-step">
+                            <div class="image-container-ratio aspect-square">
+                                <img src="historia 1.jpg" alt="Comienzo del hobby" class="fluid-img">
+                            </div>
+                            <span class="timeline-label">El Comienzo</span>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="image-container-ratio aspect-square">
+                                <img src="historia 2.jpg" alt="Viaje de inspiración" class="fluid-img">
+                            </div>
+                            <span class="timeline-label">Inspiración</span>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="image-container-ratio aspect-square">
+                                <img src="historia 3.jpg" alt="Selección boutique" class="fluid-img">
+                            </div>
+                            <span class="timeline-label">Curaduría</span>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="image-container-ratio aspect-square">
+                                <img src="historia 4.jpg" alt="Apertura en CABA" class="fluid-img">
+                            </div>
+                            <span class="timeline-label">El Wine Bar</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 7 — Ubicación -->
+    <!-- SECTION 7 — Ubicación y Horarios -->
     <section id="ubicacion" class="location-section">
         <div class="container location-container">
-            <div class="location-info reveal">
-                <span class="eyebrow">Visitanos</span>
-                <h2 class="section-title">Encontrá tu lugar en nuestra mesa</h2>
+            <div class="location-details reveal">
+                <span class="eyebrow-accent">Encuentro</span>
+                <h2 class="section-title">Dónde Encontrarnos</h2>
                 
-                <div class="info-block">
-                    <h3>📍 Dirección</h3>
-                    <p>Avenida de Mayo 777<br>Monserrat, CABA, Argentina</p>
+                <div class="details-grid">
+                    <div class="detail-block">
+                        <h4>Dirección</h4>
+                        <p>📍 Avenida de Mayo 777<br>Monserrat, CABA, Argentina</p>
+                    </div>
+                    
+                    <div class="detail-block">
+                        <h4>Horarios de Atención</h4>
+                        <ul class="schedule-list">
+                            <li><span>Lunes:</span> <span>11:00 a 19:00</span></li>
+                            <li><span>Martes a Sábado:</span> <span>11:00 a 23:00</span></li>
+                            <li><span>Domingo:</span> <span>Cerrado</span></li>
+                        </ul>
+                    </div>
                 </div>
-                
-                <div class="info-block">
-                    <h3>⏰ Horarios</h3>
-                    <ul class="hours-list">
-                        <li><span>Lunes</span> <span>11:00 a 19:00</span></li>
-                        <li><span>Martes a Sábado</span> <span>11:00 a 23:00</span></li>
-                        <li><span>Domingo</span> <span>Cerrado</span></li>
-                    </ul>
-                </div>
-                
-                <a href="https://maps.google.com/?q=Avenida+de+Mayo+777,+Monserrat,+CABA" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" id="directions-btn">
-                    Cómo llegar <i class="fa-solid fa-map-location-dot"></i>
+
+                <a href="https://maps.google.com/?q=Avenida+de+Mayo+777,+Monserrat,+CABA" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                    Cómo llegar <i class="lucide-navigation"></i>
                 </a>
             </div>
             
-            <div class="location-map reveal">
-                <!-- Google Maps Embed of Avenida de Mayo 777 CABA -->
+            <div class="location-map-wrapper reveal">
                 <iframe 
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.9926830504176!2d-58.3811802!3d-34.6043516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccacf1970220d%3A0xc3cfd6168e3ef34a!2sAv.%20de%20Mayo%20777%2C%20C1084%20CABA!5e0!3m2!1ses-419!2sar!4v1700000000000!5m2!1ses-419!2sar" 
                     width="100%" 
@@ -253,7 +308,7 @@
                     allowfullscreen="" 
                     loading="lazy" 
                     referrerpolicy="no-referrer-when-downgrade"
-                    title="Ubicación de Che Malbec en Google Maps">
+                    title="Ubicación de Che Malbec en Buenos Aires">
                 </iframe>
             </div>
         </div>
@@ -262,23 +317,24 @@
     <!-- SECTION 8 — Final CTA -->
     <section class="final-cta-section text-center reveal">
         <div class="container">
-            <h2 class="cta-title">¿Listo para disfrutar una nueva copa?</h2>
-            <p class="cta-subtitle">Escribinos y reservá tu lugar para vivir la experiencia Che Malbec.</p>
-            <a href="https://wa.me/541128481233?text=Hola%20Che%20Malbec%20%F0%9F%91%8B%20Quiero%20consultar%20por%20una%20degustaci%C3%B3n%20%2F%20reserva." target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large" id="final-conversion-btn">
-                <i class="fa-brands fa-whatsapp"></i> Hablar por WhatsApp
+            <h2 class="final-cta-title">¿Listo para disfrutar una nueva copa?</h2>
+            <p class="final-cta-subtitle">Reservá tu mesa y descubrí la experiencia íntima de Che Malbec.</p>
+            <a href="https://wa.me/541128481233?text=Hola%20Che%20Malbec%20%F0%9F%91%8B%20Quiero%20consultar%20por%20una%20degustaci%C3%B3n%20%2F%20reserva." target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large">
+                Hablar por WhatsApp
             </a>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="main-footer">
-        <div class="container footer-container">
+        <div class="container footer-grid">
             <div class="footer-brand">
                 <img src="logo.png" alt="Che Malbec Logo" class="footer-logo">
-                <p>Momentos, vinos y picadas de alma porteña.</p>
+                <p class="footer-slogan">Experiencia de vinos con alma porteña en pleno Buenos Aires.</p>
             </div>
-            <div class="footer-links">
-                <h3>Navegación</h3>
+            
+            <div class="footer-nav">
+                <h4>Navegación</h4>
                 <ul>
                     <li><a href="#inicio">Inicio</a></li>
                     <li><a href="#experiencia">Experiencia</a></li>
@@ -286,25 +342,30 @@
                     <li><a href="#ubicacion">Ubicación</a></li>
                 </ul>
             </div>
+            
             <div class="footer-contact">
-                <h3>Contacto</h3>
-                <p><i class="fa-solid fa-phone"></i> +54 11 2848-1233</p>
-                <p><i class="fa-solid fa-envelope"></i> Dato a confirmar</p>
-                <p><i class="fa-brands fa-instagram"></i> @che.malbec</p>
+                <h4>Contacto y Redes</h4>
+                <p>📍 Avenida de Mayo 777, CABA</p>
+                <p>📞 +54 11 2848-1233</p>
+                <p>📸 <a href="https://instagram.com/che.malbec" target="_blank" rel="noopener noreferrer">@che.malbec</a></p>
+                <p>✉️ Dato a confirmar</p>
             </div>
         </div>
+        
         <div class="footer-bottom text-center">
             <p>&copy; 2026 Che Malbec Mercado & Wine Bar. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <!-- Sticky/Floating WhatsApp Button -->
-    <a href="https://wa.me/541128481233?text=Hola%20Che%20Malbec%20%F0%9F%91%8B%20Quiero%20consultar%20por%20una%20degustaci%C3%B3n%20%2F%20reserva." target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Escribir por WhatsApp" id="floating-whatsapp-widget">
-        <i class="fa-brands fa-whatsapp"></i>
-        <span class="whatsapp-tooltip">¡Reservá tu mesa!</span>
+    <!-- Styled Floating Conversion Button -->
+    <a href="https://wa.me/541128481233?text=Hola%20Che%20Malbec%20%F0%9F%91%8B%20Quiero%20consultar%20por%20una%20degustaci%C3%B3n%20%2F%20reserva." target="_blank" rel="noopener noreferrer" class="premium-whatsapp-float" aria-label="Hacer reserva por WhatsApp">
+        <div class="whatsapp-icon-container">
+            <i class="lucide-phone-call"></i>
+        </div>
+        <span class="float-btn-text">Reservar Mesa</span>
     </a>
 
-    <!-- Custom JavaScript -->
+    <!-- Custom JS -->
     <script src="app.js" defer></script>
 </body>
 </html>

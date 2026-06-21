@@ -4,21 +4,21 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Mobile Menu Toggle
-    const mobileToggle = document.getElementById('btn-mobile-toggle');
-    const navMenu = document.getElementById('navigation-menu');
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const navMenu = document.getElementById('nav-menu');
     const navLinks = document.querySelectorAll('.nav-item, .nav-btn');
 
     if (mobileToggle && navMenu) {
         mobileToggle.addEventListener('click', () => {
             navMenu.classList.toggle('open');
-            // Toggle hamburger icon between list bars and close mark
+            // Toggle menu icon
             const icon = mobileToggle.querySelector('i');
-            if (icon.classList.contains('fa-bars-staggered')) {
-                icon.classList.remove('fa-bars-staggered');
-                icon.classList.add('fa-xmark');
+            if (icon.classList.contains('lucide-align-right')) {
+                icon.classList.remove('lucide-align-right');
+                icon.classList.add('lucide-x');
             } else {
-                icon.classList.remove('fa-xmark');
-                icon.classList.add('fa-bars-staggered');
+                icon.classList.remove('lucide-x');
+                icon.classList.add('lucide-align-right');
             }
         });
 
@@ -28,14 +28,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 navMenu.classList.remove('open');
                 const icon = mobileToggle.querySelector('i');
                 if (icon) {
-                    icon.classList.remove('fa-xmark');
-                    icon.classList.add('fa-bars-staggered');
+                    icon.classList.remove('lucide-x');
+                    icon.classList.add('lucide-align-right');
                 }
             });
         });
     }
 
-    // 2. Scroll Reveal Animations (Motion Intensity: 4)
+    // 2. Scroll Reveal Animations (Motion Intensity: 5)
     const revealElements = document.querySelectorAll('.reveal');
     
     const revealObserver = new IntersectionObserver((entries, observer) => {
@@ -46,30 +46,30 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }, {
-        threshold: 0.15,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
     });
 
     revealElements.forEach(el => {
         revealObserver.observe(el);
     });
 
-    // 3. Main Header Shrink & Style Change on Scroll
-    const header = document.querySelector('.main-header');
+    // 3. Header Styling on Scroll
+    const header = document.getElementById('header');
     
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.style.padding = '0.5rem 0';
-            header.style.backgroundColor = 'rgba(244, 224, 197, 0.98)';
-            header.style.boxShadow = '0 4px 20px rgba(43, 30, 26, 0.05)';
+        if (window.scrollY > 40) {
+            header.style.height = '70px';
+            header.style.backgroundColor = 'rgba(244, 224, 197, 0.95)';
+            header.style.boxShadow = '0 4px 30px rgba(43, 30, 26, 0.04)';
         } else {
-            header.style.padding = '0';
-            header.style.backgroundColor = 'rgba(244, 224, 197, 0.92)';
+            header.style.height = '80px';
+            header.style.backgroundColor = 'rgba(244, 224, 197, 0.85)';
             header.style.boxShadow = 'none';
         }
     });
 
-    // 4. Anchor Item Active Class sync
+    // 4. Sync Active Class on Scroll
     const sections = document.querySelectorAll('section[id]');
     
     window.addEventListener('scroll', () => {
