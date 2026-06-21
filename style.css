@@ -5,11 +5,11 @@
 
 /* Design Tokens & Custom Variables */
 :root {
-    --color-bg: #F4E0C5;          /* Crema / Beige cálido */
+    --color-bg: #FEE9CC;          /* Crema exacto del fondo del logo */
     --color-wine: #6B3F2E;        /* Marrón vino */
     --color-gold: #C7A25B;        /* Dorado cálido */
     --color-dark: #2B1E1A;        /* Marrón oscuro / texto principal */
-    --color-cream-light: #F7EBD9; /* Crema claro para contraste sutil */
+    --color-cream-light: #F4E0C5; /* Contraste sutil (anterior fondo crema) */
     --color-white: #FFFFFF;
     
     --font-serif: 'Cormorant Garamond', Georgia, serif;
@@ -137,7 +137,7 @@ p {
     left: 0;
     width: 100%;
     height: var(--header-height);
-    background-color: rgba(244, 224, 197, 0.85);
+    background-color: rgba(254, 233, 204, 0.85); /* Cohesivo con el logo */
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(107, 63, 46, 0.06);

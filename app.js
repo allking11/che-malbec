@@ -60,11 +60,11 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', () => {
         if (window.scrollY > 40) {
             header.style.height = '70px';
-            header.style.backgroundColor = 'rgba(244, 224, 197, 0.95)';
+            header.style.backgroundColor = 'rgba(254, 233, 204, 0.95)';
             header.style.boxShadow = '0 4px 30px rgba(43, 30, 26, 0.04)';
         } else {
             header.style.height = '80px';
-            header.style.backgroundColor = 'rgba(244, 224, 197, 0.85)';
+            header.style.backgroundColor = 'rgba(254, 233, 204, 0.85)';
             header.style.boxShadow = 'none';
         }
     });
