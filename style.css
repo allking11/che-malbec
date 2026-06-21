@@ -321,11 +321,18 @@ p {
     width: 100%;
 }
 
+.hero-image-wrapper .image-container-ratio {
+    padding-top: 0 !important;
+    height: 320px; /* Bounded height on mobile/tablet (horizontal look) */
+    border-radius: 4px;
+    box-shadow: 0 20px 40px rgba(107, 63, 46, 0.08);
+}
+
 @media (min-width: 769px) {
     .hero-image-wrapper .image-container-ratio {
-        padding-top: 0 !important;
         height: 60vh;
         max-height: 480px;
+        aspect-ratio: 4/5;
     }
 }
 
@@ -358,8 +365,20 @@ p {
 
 .proof-image-wrapper {
     position: relative;
-    border-radius: 2px;
+    border-radius: 4px;
     overflow: hidden;
+}
+
+.proof-image-wrapper .image-container-ratio {
+    padding-top: 0 !important;
+    height: 280px; /* Bounded height on mobile/tablet */
+    border-radius: 4px;
+}
+
+@media (min-width: 769px) {
+    .proof-image-wrapper .image-container-ratio {
+        height: 380px; /* Bounded height on desktop */
+    }
 }
 
 .stars-rating {
@@ -443,8 +462,20 @@ p {
 
 .featured-media-block {
     position: relative;
-    border-radius: 2px;
+    border-radius: 4px;
     overflow: hidden;
+}
+
+.featured-media-block .image-container-ratio {
+    padding-top: 0 !important;
+    height: 240px; /* Bounded height on mobile */
+    border-radius: 4px;
+}
+
+@media (min-width: 769px) {
+    .featured-media-block .image-container-ratio {
+        height: 450px; /* Bounded height on desktop */
+    }
 }
 
 /* SECTION 4 — Degustaciones */
@@ -520,6 +551,23 @@ p {
     grid-template-cols: 1.1fr 0.9fr;
     gap: 6rem;
     align-items: center;
+}
+
+.carta-image-block {
+    position: relative;
+    width: 100%;
+}
+
+.carta-image-block .image-container-ratio {
+    padding-top: 0 !important;
+    height: 320px; /* Bounded height on mobile */
+    border-radius: 4px;
+}
+
+@media (min-width: 769px) {
+    .carta-image-block .image-container-ratio {
+        height: 520px; /* Bounded height on desktop to match menu list */
+    }
 }
 
 .menu-list {
