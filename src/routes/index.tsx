@@ -199,7 +199,7 @@ function Index() {
           <div className="absolute inset-0 bg-gradient-to-b from-[color:var(--ink)]/70 via-[color:var(--ink)]/45 to-[color:var(--ink)]/85" />
         </div>
         <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-4xl flex-col items-center justify-center px-6 pt-24 pb-16 text-center text-[color:var(--cream)]">
-          <span className="gold-divider mb-6 reveal in">Mercado & Wine Bar · Buenos Aires</span>
+          <span className="gold-divider mb-6 reveal in" style={{ color: "var(--gold)" }}>Mercado & Wine Bar · Buenos Aires</span>
           <h1 className="reveal in font-serif text-4xl leading-[1.1] sm:text-6xl md:text-7xl">
             El vino argentino se disfruta mejor <em className="text-[color:var(--gold)] not-italic font-medium">cuando se comparte</em>
           </h1>
@@ -259,7 +259,7 @@ function Index() {
             ].map((t, i) => (
               <article
                 key={t.n}
-                className="reveal flex flex-col rounded-sm border border-[color:var(--cream)]/10 bg-[color:var(--cream)]/[0.04] p-7 backdrop-blur-sm"
+                className="reveal flex flex-col rounded-lg border border-[color:var(--cream)]/10 bg-[color:var(--cream)]/[0.04] p-7 backdrop-blur-sm"
                 style={{ transitionDelay: `${i * 80}ms` }}
               >
                 <div className="text-lg tracking-widest text-[color:var(--gold)]">★ ★ ★ ★ ★</div>
@@ -313,7 +313,7 @@ function Index() {
               { t: "Catas por pasos", d: "Una experiencia pensada para explorar distintas etiquetas, copa por copa." },
               { t: "Maridajes", d: "Combinaciones con picadas, quesos, fiambres y gastronomía casera." },
             ].map((c, i) => (
-              <article key={c.t} className="reveal group relative flex flex-col rounded-sm border border-[color:var(--gold)]/40 bg-[color:var(--card)] p-8 transition-all hover:-translate-y-1 hover:border-[color:var(--gold)] hover:shadow-xl" style={{ transitionDelay: `${i * 80}ms` }}>
+              <article key={c.t} className="reveal group relative flex flex-col rounded-lg border border-[color:var(--gold)]/40 bg-[color:var(--card)] p-8 transition-all hover:-translate-y-1 hover:border-[color:var(--gold)] hover:shadow-xl" style={{ transitionDelay: `${i * 80}ms` }}>
                 <span className="font-serif text-sm italic text-[color:var(--gold)]">0{i + 1}</span>
                 <h3 className="mt-3 text-2xl text-[color:var(--wine)]">{c.t}</h3>
                 <p className="mt-4 flex-1 text-[color:var(--ink)]/75 leading-relaxed">{c.d}</p>
@@ -334,7 +334,7 @@ function Index() {
       <section id="carta" className="relative bg-[color:var(--ink)] py-24 text-[color:var(--cream)] sm:py-32">
         <div className="mx-auto grid max-w-6xl items-center gap-14 px-6 md:grid-cols-[1.1fr_1fr]">
           <div className="reveal">
-            <p className="gold-divider">La carta</p>
+            <p className="gold-divider" style={{ color: "var(--gold)" }}>La carta</p>
             <h2 className="mt-5 font-serif text-3xl sm:text-4xl md:text-5xl">
               Vinos y sabores para compartir
             </h2>
@@ -422,7 +422,7 @@ function Index() {
           </div>
 
           <div className="reveal">
-            <div className="overflow-hidden rounded-sm border border-[color:var(--gold)]/40 shadow-xl">
+            <div className="overflow-hidden rounded-lg border border-[color:var(--gold)]/40 shadow-xl">
               <iframe
                 title="Mapa de Che Malbec"
                 src="https://www.google.com/maps?q=Avenida+de+Mayo+777,+Buenos+Aires&output=embed"

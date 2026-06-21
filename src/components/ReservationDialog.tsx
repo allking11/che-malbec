@@ -71,7 +71,8 @@ export function ReservationDialog({ open, onOpenChange }: Props) {
       return;
     }
     const d = parsed.data;
-    const fechaTxt = format(d.fecha, "EEEE d 'de' MMMM", { locale: es });
+    const rawFecha = format(d.fecha, "EEEE d 'de' MMMM", { locale: es });
+    const fechaTxt = rawFecha.charAt(0).toUpperCase() + rawFecha.slice(1);
     const lines = [
       "Hola Che Malbec 👋 Quiero reservar una mesa:",
       "",
@@ -116,9 +117,9 @@ export function ReservationDialog({ open, onOpenChange }: Props) {
 
           <div className="grid grid-cols-2 gap-3">
             <div className="space-y-2">
-              <Label>Comensales</Label>
+              <Label htmlFor="comensales">Comensales</Label>
               <Select value={comensales} onValueChange={setComensales}>
-                <SelectTrigger>
+                <SelectTrigger id="comensales" aria-label="Cantidad de comensales">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -132,9 +133,9 @@ export function ReservationDialog({ open, onOpenChange }: Props) {
             </div>
 
             <div className="space-y-2">
-              <Label>Horario</Label>
+              <Label htmlFor="horario">Horario</Label>
               <Select value={hora} onValueChange={setHora}>
-                <SelectTrigger>
+                <SelectTrigger id="horario" aria-label="Seleccionar horario">
                   <SelectValue placeholder="Elegí" />
                 </SelectTrigger>
                 <SelectContent>
@@ -147,10 +148,12 @@ export function ReservationDialog({ open, onOpenChange }: Props) {
           </div>
 
           <div className="space-y-2">
-            <Label>Fecha</Label>
+            <Label htmlFor="fecha">Fecha</Label>
             <Popover open={calendarOpen} onOpenChange={setCalendarOpen}>
               <PopoverTrigger asChild>
                 <Button
+                  id="fecha"
+                  aria-label="Seleccionar fecha de la reserva"
                   type="button"
                   variant="outline"
                   className={cn(
@@ -160,7 +163,10 @@ export function ReservationDialog({ open, onOpenChange }: Props) {
                 >
                   <CalendarIcon className="mr-2 h-4 w-4" />
                   {fecha
-                    ? format(fecha, "EEEE d 'de' MMMM", { locale: es })
+                    ? (() => {
+                        const raw = format(fecha, "EEEE d 'de' MMMM", { locale: es });
+                        return raw.charAt(0).toUpperCase() + raw.slice(1);
+                      })()
                     : "Elegí una fecha"}
                 </Button>
               </PopoverTrigger>
