@@ -95,9 +95,9 @@ function Index() {
             Degustaciones guiadas, vinos boutique y gastronomía casera en un wine bar íntimo en el corazón de Buenos Aires.
           </p>
           <div className="reveal in mt-10 flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row">
-            <a href={WA_URL} target="_blank" rel="noopener" className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[color:var(--wine)] px-8 py-4 text-sm font-semibold uppercase tracking-[0.12em] text-[color:var(--cream)] shadow-lg transition-all hover:scale-[1.02] hover:bg-[color:var(--ink)] sm:w-auto">
-              <WhatsAppIcon className="h-5 w-5" /> Reservar por WhatsApp
-            </a>
+            <button type="button" onClick={openReserva} className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[color:var(--wine)] px-8 py-4 text-sm font-semibold uppercase tracking-[0.12em] text-[color:var(--cream)] shadow-lg transition-all hover:scale-[1.02] hover:bg-[color:var(--ink)] sm:w-auto">
+              <WhatsAppIcon className="h-5 w-5" /> Reservar mesa
+            </button>
             <a href="#experiencia" className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-[color:var(--gold)]/70 px-8 py-4 text-sm font-medium uppercase tracking-[0.12em] text-[color:var(--cream)] transition-colors hover:bg-[color:var(--cream)]/10 sm:w-auto">
               Ver la experiencia
             </a>
