@@ -1,22 +1,32 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import logo from "@/assets/logo.png.asset.json";
-import fachada from "@/assets/fachada.jpg.asset.json";
-import copa from "@/assets/copa.jpg.asset.json";
-import copaBotella from "@/assets/copa-botella.jpg.asset.json";
-import burrata from "@/assets/burrata.jpg.asset.json";
-import clientes from "@/assets/clientes.jpg.asset.json";
-import { ReservationDialog } from "@/components/ReservationDialog";
+import logo from "@/assets/logo.webp";
+import fachada from "@/assets/fachada.webp";
+import copa from "@/assets/copa.webp";
+import copaBotella from "@/assets/copa-botella.webp";
+import burrata from "@/assets/burrata.webp";
+import clientes from "@/assets/clientes.webp";
+import { Menu, X } from "lucide-react";
+import { lazy, Suspense } from "react";
+
+const ReservationDialog = lazy(() =>
+  import("@/components/ReservationDialog").then((module) => ({
+    default: module.ReservationDialog,
+  }))
+);
 
 export const Route = createFileRoute("/")({
   head: () => ({
+    title: "Che Malbec — Wine Bar boutique en Buenos Aires",
     meta: [
-      { title: "Che Malbec — Wine Bar boutique en Buenos Aires" },
       { name: "description", content: "Degustaciones guiadas, vinos argentinos boutique y picadas caseras en Av. de Mayo 777. Reservá por WhatsApp." },
       { property: "og:title", content: "Che Malbec — Wine Bar boutique en Buenos Aires" },
       { property: "og:description", content: "Vinos argentinos, degustaciones y momentos para compartir en pleno Buenos Aires." },
-      { property: "og:image", content: fachada.url },
-      { name: "twitter:image", content: fachada.url },
+      { property: "og:image", content: "https://www.chemalbec.com.ar" + fachada },
+      { name: "twitter:image", content: "https://www.chemalbec.com.ar" + fachada },
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.chemalbec.com.ar" },
     ],
   }),
   component: Index,
@@ -31,7 +41,14 @@ function useReveal() {
   useEffect(() => {
     const els = document.querySelectorAll<HTMLElement>(".reveal");
     const io = new IntersectionObserver(
-      (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add("in")),
+      (entries, observer) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("in");
+            observer.unobserve(e.target);
+          }
+        });
+      },
       { threshold: 0.12 }
     );
     els.forEach((el) => io.observe(el));
@@ -51,21 +68,72 @@ function Index() {
   useReveal();
   const [reservaOpen, setReservaOpen] = useState(false);
   const openReserva = () => setReservaOpen(true);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const sentinel = document.getElementById("top-sentinel");
+    if (!sentinel) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setScrolled(!entry.isIntersecting),
+      { threshold: 0 }
+    );
+    observer.observe(sentinel);
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground relative">
+      <div id="top-sentinel" className="absolute top-0 left-0 h-10 w-full pointer-events-none" />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BarOrPub",
+            "name": "Che Malbec",
+            "image": "https://www.chemalbec.com.ar" + fachada,
+            "@id": "https://www.chemalbec.com.ar",
+            "url": "https://www.chemalbec.com.ar",
+            "telephone": "+5491128481233",
+            "priceRange": "$$",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Avenida de Mayo 777",
+              "addressLocality": "Monserrat",
+              "addressRegion": "CABA",
+              "postalCode": "1084",
+              "addressCountry": "AR"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": -34.6087,
+              "longitude": -58.3797
+            },
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "Monday",
+                "opens": "11:00",
+                "closes": "19:00"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                "opens": "11:00",
+                "closes": "23:00"
+              }
+            ],
+            "sameAs": [
+              "https://www.instagram.com/che.malbec"
+            ]
+          })
+        }}
+      />
       {/* NAV */}
       <header className={`fixed inset-x-0 top-0 z-40 bg-[color:var(--cream)] border-b border-[color:var(--gold)]/30 transition-all duration-500 ${scrolled ? "py-3 shadow-sm" : "py-5"}`}>
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-5">
           <a href="#inicio" className="flex items-center gap-2">
-            <img src={logo.url} alt="Che Malbec Mercado & Wine Bar" className="h-10 w-auto md:h-12" />
+            <img src={logo} alt="Che Malbec Mercado & Wine Bar" className="h-10 w-auto md:h-12" />
           </a>
           <ul className="hidden items-center gap-8 text-sm font-medium text-[color:var(--ink)]/80 md:flex">
             <li><a href="#experiencia" className="hover:text-[color:var(--wine)] transition-colors">Experiencia</a></li>
@@ -77,13 +145,57 @@ function Index() {
           <button type="button" onClick={openReserva} className="hidden items-center gap-2 rounded-full bg-[color:var(--wine)] px-5 py-2.5 text-sm font-semibold tracking-wide text-[color:var(--cream)] shadow-sm transition-all hover:bg-[color:var(--ink)] md:inline-flex">
             <WhatsAppIcon className="h-4 w-4" /> Reservar
           </button>
+          
+          {/* Botón menú móvil (hamburguesa) */}
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen(true)}
+            className="flex p-2 text-[color:var(--ink)] md:hidden focus:outline-none focus-visible:outline-2 focus-visible:outline-[color:var(--gold)]"
+            aria-label="Abrir menú"
+          >
+            <Menu className="h-6 w-6" />
+          </button>
         </nav>
       </header>
 
-      {/* HERO */}
-      <section id="inicio" className="relative min-h-[100svh] w-full overflow-hidden">
+      {/* Menú desplegable móvil */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 z-50 bg-[color:var(--cream)] p-6 md:hidden flex flex-col transition-all duration-300">
+          <div className="flex items-center justify-between border-b border-[color:var(--gold)]/20 pb-4">
+            <img src={logo} alt="Logo" className="h-10 w-auto" />
+            <button 
+              type="button" 
+              onClick={() => setMobileMenuOpen(false)} 
+              className="p-1 focus:outline-none focus-visible:outline-2 focus-visible:outline-[color:var(--gold)]"
+              aria-label="Cerrar menú"
+            >
+              <X className="h-6 w-6 text-[color:var(--ink)]" />
+            </button>
+          </div>
+          <nav className="mt-10">
+            <ul className="flex flex-col gap-6 text-xl font-medium text-[color:var(--ink)]/90">
+              <li><a href="#experiencia" onClick={() => setMobileMenuOpen(false)}>Experiencia</a></li>
+              <li><a href="#degustaciones" onClick={() => setMobileMenuOpen(false)}>Degustaciones</a></li>
+              <li><a href="#carta" onClick={() => setMobileMenuOpen(false)}>Carta</a></li>
+              <li><a href="#historia" onClick={() => setMobileMenuOpen(false)}>Historia</a></li>
+              <li><a href="#ubicacion" onClick={() => setMobileMenuOpen(false)}>Ubicación</a></li>
+            </ul>
+          </nav>
+          <button 
+            type="button" 
+            onClick={() => { setMobileMenuOpen(false); openReserva(); }} 
+            className="mt-auto flex w-full items-center justify-center gap-2 rounded-full bg-[color:var(--wine)] py-4 text-base font-semibold tracking-wide text-[color:var(--cream)]"
+          >
+            <WhatsAppIcon className="h-5 w-5" /> Reservar mesa
+          </button>
+        </div>
+      )}
+
+      <main id="main-content">
+        {/* HERO */}
+        <section id="inicio" className="relative min-h-[100svh] w-full overflow-hidden">
         <div className="absolute inset-0">
-          <img src={fachada.url} alt="Fachada de Che Malbec en Av. de Mayo, Buenos Aires" className="h-full w-full object-cover ken-burns" />
+          <img src={fachada} alt="Fachada de Che Malbec en Av. de Mayo, Buenos Aires" className="h-full w-full object-cover ken-burns" loading="eager" fetchpriority="high" />
           <div className="absolute inset-0 bg-gradient-to-b from-[color:var(--ink)]/70 via-[color:var(--ink)]/45 to-[color:var(--ink)]/85" />
         </div>
         <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-4xl flex-col items-center justify-center px-6 pt-24 pb-16 text-center text-[color:var(--cream)]">
@@ -168,7 +280,7 @@ function Index() {
       <section id="experiencia" className="relative overflow-hidden bg-[color:var(--card)] py-24 sm:py-32">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 md:grid-cols-2 md:gap-20">
           <div className="reveal order-2 md:order-1">
-            <img src={copa.url} alt="Copa de vino servida en Che Malbec" className="aspect-[4/5] w-full rounded-sm object-cover shadow-xl" />
+            <img src={copa} alt="Copa de vino servida en Che Malbec" className="aspect-[4/5] w-full rounded-lg object-cover shadow-xl" loading="lazy" />
           </div>
           <div className="reveal order-1 md:order-2">
             <p className="gold-divider">La experiencia</p>
@@ -251,9 +363,9 @@ function Index() {
           </div>
 
           <div className="reveal grid grid-cols-2 gap-4">
-            <img src={copaBotella.url} alt="Botella de Malbec argentino con copa Che Malbec" className="col-span-2 aspect-[4/5] w-full rounded-sm object-cover shadow-2xl sm:aspect-[5/4]" />
-            <img src={burrata.url} alt="Plato de burrata con jamón crudo y rúcula" className="aspect-square w-full rounded-sm object-cover" />
-            <img src={clientes.url} alt="Clientes disfrutando en el salón de Che Malbec" className="aspect-square w-full rounded-sm object-cover" />
+            <img src={copaBotella} alt="Botella de Malbec argentino con copa Che Malbec" className="col-span-2 aspect-[4/5] w-full rounded-lg object-cover shadow-2xl sm:aspect-[5/4]" loading="lazy" />
+            <img src={burrata} alt="Plato de burrata con jamón crudo y rúcula" className="aspect-square w-full rounded-lg object-cover" loading="lazy" />
+            <img src={clientes} alt="Clientes disfrutando en el salón de Che Malbec" className="aspect-square w-full rounded-lg object-cover" loading="lazy" />
           </div>
         </div>
       </section>
@@ -323,38 +435,39 @@ function Index() {
         </div>
       </section>
 
-      {/* CTA FINAL */}
-      <section className="relative overflow-hidden bg-[color:var(--wine)] py-24 text-[color:var(--cream)] sm:py-32">
-        <div className="mx-auto max-w-3xl px-6 text-center">
-          <p className="gold-divider reveal" style={{ color: "var(--gold)" }}>Reservá tu mesa</p>
-          <h2 className="reveal mt-5 font-serif text-3xl leading-tight sm:text-5xl md:text-6xl">
-            ¿Listo para disfrutar <em className="not-italic text-[color:var(--gold)]">una nueva copa?</em>
-          </h2>
-          <p className="reveal mt-6 text-lg text-[color:var(--cream)]/85">
-            Escribinos y reservá tu lugar. Te esperamos en Av. de Mayo 777.
-          </p>
-          <button type="button" onClick={openReserva} className="reveal mt-10 inline-flex items-center gap-3 rounded-full bg-[color:var(--gold)] px-10 py-5 text-sm font-semibold uppercase tracking-[0.14em] text-[color:var(--ink)] shadow-2xl transition-all hover:scale-[1.03] hover:bg-[color:var(--cream)]">
-            <WhatsAppIcon className="h-5 w-5" /> Reservar tu mesa
-          </button>
-        </div>
-      </section>
+        {/* CTA FINAL */}
+        <section className="relative overflow-hidden bg-[color:var(--wine)] py-24 text-[color:var(--cream)] sm:py-32">
+          <div className="mx-auto max-w-3xl px-6 text-center">
+            <p className="gold-divider reveal" style={{ color: "var(--gold)" }}>Reservá tu mesa</p>
+            <h2 className="reveal mt-5 font-serif text-3xl leading-tight sm:text-5xl md:text-6xl">
+              ¿Listo para disfrutar <em className="not-italic text-[color:var(--gold)]">una nueva copa?</em>
+            </h2>
+            <p className="reveal mt-6 text-lg text-[color:var(--cream)]/85">
+              Escribinos y reservá tu lugar. Te esperamos en Av. de Mayo 777.
+            </p>
+            <button type="button" onClick={openReserva} className="reveal mt-10 inline-flex items-center gap-3 rounded-full bg-[color:var(--gold)] px-10 py-5 text-sm font-semibold uppercase tracking-[0.14em] text-[color:var(--ink)] shadow-2xl transition-all hover:scale-[1.03] hover:bg-[color:var(--cream)]">
+              <WhatsAppIcon className="h-5 w-5" /> Reservar tu mesa
+            </button>
+          </div>
+        </section>
+      </main>
 
       {/* FOOTER */}
       <footer className="bg-[color:var(--ink)] py-14 text-[color:var(--cream)]/80">
         <div className="mx-auto grid max-w-6xl gap-10 px-6 md:grid-cols-3">
           <div>
-            <img src={logo.url} alt="Che Malbec" className="h-14 w-auto" />
+            <img src={logo} alt="Che Malbec" className="h-14 w-auto" />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-[color:var(--cream)]/65">
               Wine bar boutique en Buenos Aires. Vinos argentinos, degustaciones guiadas y picadas para compartir.
             </p>
           </div>
           <div>
-            <h4 className="font-serif text-sm uppercase tracking-[0.18em] text-[color:var(--gold)]">Visitanos</h4>
+            <h3 className="font-serif text-sm uppercase tracking-[0.18em] text-[color:var(--gold)]">Visitanos</h3>
             <p className="mt-4 text-sm">Av. de Mayo 777<br/>Monserrat · CABA</p>
             <p className="mt-3 text-sm text-[color:var(--cream)]/65">Lun 11–19h · Mar–Sáb 11–23h<br/>Dom cerrado</p>
           </div>
           <div>
-            <h4 className="font-serif text-sm uppercase tracking-[0.18em] text-[color:var(--gold)]">Contacto</h4>
+            <h3 className="font-serif text-sm uppercase tracking-[0.18em] text-[color:var(--gold)]">Contacto</h3>
             <ul className="mt-4 space-y-2 text-sm">
               <li><a href={WA_URL} target="_blank" rel="noopener" className="hover:text-[color:var(--gold)]">WhatsApp: +54 9 11 2848-1233</a></li>
               <li><a href="https://instagram.com/che.malbec" target="_blank" rel="noopener" className="hover:text-[color:var(--gold)]">Instagram: @che.malbec</a></li>
@@ -366,7 +479,22 @@ function Index() {
         </div>
       </footer>
 
-      <ReservationDialog open={reservaOpen} onOpenChange={setReservaOpen} />
+      {/* Botón de reserva flotante para móviles */}
+      <div className="fixed bottom-4 inset-x-4 z-40 md:hidden">
+        <button
+          type="button"
+          onClick={openReserva}
+          className="flex w-full items-center justify-center gap-2 rounded-full bg-[color:var(--wine)] py-3 px-5 text-sm font-semibold tracking-wide text-[color:var(--cream)] shadow-lg hover:bg-[color:var(--ink)] transition-colors border border-[color:var(--gold)]/30"
+        >
+          <WhatsAppIcon className="h-4 w-4" /> Reservá tu Mesa por WhatsApp
+        </button>
+      </div>
+
+      {reservaOpen && (
+        <Suspense fallback={null}>
+          <ReservationDialog open={reservaOpen} onOpenChange={setReservaOpen} />
+        </Suspense>
+      )}
     </div>
   );
 }

@@ -56,10 +56,11 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
+    title: "Che Malbec — Mercado & Wine Bar boutique en Buenos Aires",
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Che Malbec — Mercado & Wine Bar boutique en Buenos Aires" },
+      { name: "robots", content: "index, follow" },
       { name: "description", content: "Wine bar boutique en Av. de Mayo 777. Degustaciones guiadas, vinos argentinos y picadas caseras. Reservá por WhatsApp." },
       { name: "author", content: "Che Malbec" },
       { property: "og:title", content: "Che Malbec — Mercado & Wine Bar" },
@@ -68,6 +69,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
+      { rel: "canonical", href: "https://www.chemalbec.com.ar" },
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
