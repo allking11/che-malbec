@@ -6,6 +6,7 @@ import copa from "@/assets/copa.jpg.asset.json";
 import copaBotella from "@/assets/copa-botella.jpg.asset.json";
 import burrata from "@/assets/burrata.jpg.asset.json";
 import clientes from "@/assets/clientes.jpg.asset.json";
+import { ReservationDialog } from "@/components/ReservationDialog";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -48,6 +49,8 @@ function WhatsAppIcon({ className = "" }: { className?: string }) {
 
 function Index() {
   useReveal();
+  const [reservaOpen, setReservaOpen] = useState(false);
+  const openReserva = () => setReservaOpen(true);
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -71,9 +74,9 @@ function Index() {
             <li><a href="#historia" className="hover:text-[color:var(--wine)] transition-colors">Historia</a></li>
             <li><a href="#ubicacion" className="hover:text-[color:var(--wine)] transition-colors">Ubicación</a></li>
           </ul>
-          <a href={WA_URL} target="_blank" rel="noopener" className="hidden items-center gap-2 rounded-full bg-[color:var(--wine)] px-5 py-2.5 text-sm font-semibold tracking-wide text-[color:var(--cream)] shadow-sm transition-all hover:bg-[color:var(--ink)] md:inline-flex">
+          <button type="button" onClick={openReserva} className="hidden items-center gap-2 rounded-full bg-[color:var(--wine)] px-5 py-2.5 text-sm font-semibold tracking-wide text-[color:var(--cream)] shadow-sm transition-all hover:bg-[color:var(--ink)] md:inline-flex">
             <WhatsAppIcon className="h-4 w-4" /> Reservar
-          </a>
+          </button>
         </nav>
       </header>
 
@@ -92,9 +95,9 @@ function Index() {
             Degustaciones guiadas, vinos boutique y gastronomía casera en un wine bar íntimo en el corazón de Buenos Aires.
           </p>
           <div className="reveal in mt-10 flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row">
-            <a href={WA_URL} target="_blank" rel="noopener" className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[color:var(--wine)] px-8 py-4 text-sm font-semibold uppercase tracking-[0.12em] text-[color:var(--cream)] shadow-lg transition-all hover:scale-[1.02] hover:bg-[color:var(--ink)] sm:w-auto">
-              <WhatsAppIcon className="h-5 w-5" /> Reservar por WhatsApp
-            </a>
+            <button type="button" onClick={openReserva} className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[color:var(--wine)] px-8 py-4 text-sm font-semibold uppercase tracking-[0.12em] text-[color:var(--cream)] shadow-lg transition-all hover:scale-[1.02] hover:bg-[color:var(--ink)] sm:w-auto">
+              <WhatsAppIcon className="h-5 w-5" /> Reservar mesa
+            </button>
             <a href="#experiencia" className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-[color:var(--gold)]/70 px-8 py-4 text-sm font-medium uppercase tracking-[0.12em] text-[color:var(--cream)] transition-colors hover:bg-[color:var(--cream)]/10 sm:w-auto">
               Ver la experiencia
             </a>
@@ -208,9 +211,9 @@ function Index() {
           </div>
 
           <div className="reveal mt-14 text-center">
-            <a href={WA_URL} target="_blank" rel="noopener" className="inline-flex items-center gap-2 rounded-full bg-[color:var(--wine)] px-8 py-4 text-sm font-semibold uppercase tracking-[0.12em] text-[color:var(--cream)] transition-all hover:bg-[color:var(--ink)]">
-              <WhatsAppIcon className="h-5 w-5" /> Consultar degustaciones
-            </a>
+            <button type="button" onClick={openReserva} className="inline-flex items-center gap-2 rounded-full bg-[color:var(--wine)] px-8 py-4 text-sm font-semibold uppercase tracking-[0.12em] text-[color:var(--cream)] transition-all hover:bg-[color:var(--ink)]">
+              <WhatsAppIcon className="h-5 w-5" /> Reservar degustación
+            </button>
           </div>
         </div>
       </section>
@@ -242,9 +245,9 @@ function Index() {
               ))}
             </ul>
 
-            <a href={WA_URL} target="_blank" rel="noopener" className="mt-10 inline-flex items-center gap-2 rounded-full border border-[color:var(--gold)] px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.12em] text-[color:var(--gold)] transition-colors hover:bg-[color:var(--gold)] hover:text-[color:var(--ink)]">
-              Consultar la carta
-            </a>
+            <button type="button" onClick={openReserva} className="mt-10 inline-flex items-center gap-2 rounded-full border border-[color:var(--gold)] px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.12em] text-[color:var(--gold)] transition-colors hover:bg-[color:var(--gold)] hover:text-[color:var(--ink)]">
+              Reservar mesa
+            </button>
           </div>
 
           <div className="reveal grid grid-cols-2 gap-4">
@@ -303,9 +306,9 @@ function Index() {
               <a href={MAPS_URL} target="_blank" rel="noopener" className="inline-flex items-center gap-2 rounded-full bg-[color:var(--wine)] px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-[color:var(--cream)] hover:bg-[color:var(--ink)]">
                 Cómo llegar
               </a>
-              <a href={WA_URL} target="_blank" rel="noopener" className="inline-flex items-center gap-2 rounded-full border border-[color:var(--wine)] px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-[color:var(--wine)] hover:bg-[color:var(--wine)] hover:text-[color:var(--cream)]">
+              <button type="button" onClick={openReserva} className="inline-flex items-center gap-2 rounded-full border border-[color:var(--wine)] px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-[color:var(--wine)] hover:bg-[color:var(--wine)] hover:text-[color:var(--cream)]">
                 <WhatsAppIcon className="h-4 w-4" /> Reservar
-              </a>
+              </button>
             </div>
           </div>
 
@@ -333,9 +336,9 @@ function Index() {
           <p className="reveal mt-6 text-lg text-[color:var(--cream)]/85">
             Escribinos y reservá tu lugar. Te esperamos en Av. de Mayo 777.
           </p>
-          <a href={WA_URL} target="_blank" rel="noopener" className="reveal mt-10 inline-flex items-center gap-3 rounded-full bg-[color:var(--gold)] px-10 py-5 text-sm font-semibold uppercase tracking-[0.14em] text-[color:var(--ink)] shadow-2xl transition-all hover:scale-[1.03] hover:bg-[color:var(--cream)]">
-            <WhatsAppIcon className="h-5 w-5" /> Hablar por WhatsApp
-          </a>
+          <button type="button" onClick={openReserva} className="reveal mt-10 inline-flex items-center gap-3 rounded-full bg-[color:var(--gold)] px-10 py-5 text-sm font-semibold uppercase tracking-[0.14em] text-[color:var(--ink)] shadow-2xl transition-all hover:scale-[1.03] hover:bg-[color:var(--cream)]">
+            <WhatsAppIcon className="h-5 w-5" /> Reservar tu mesa
+          </button>
         </div>
       </section>
 
@@ -366,16 +369,7 @@ function Index() {
         </div>
       </footer>
 
-      {/* WHATSAPP FLOTANTE */}
-      <a
-        href={WA_URL}
-        target="_blank"
-        rel="noopener"
-        aria-label="Reservar por WhatsApp"
-        className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-2xl ring-4 ring-[#25D366]/25 transition-transform hover:scale-110 sm:h-16 sm:w-16"
-      >
-        <WhatsAppIcon className="h-7 w-7 sm:h-8 sm:w-8" />
-      </a>
+      <ReservationDialog open={reservaOpen} onOpenChange={setReservaOpen} />
     </div>
   );
 }
