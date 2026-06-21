@@ -13,12 +13,12 @@ document.addEventListener('DOMContentLoaded', () => {
             navMenu.classList.toggle('open');
             // Toggle menu icon
             const icon = mobileToggle.querySelector('i');
-            if (icon.classList.contains('lucide-align-right')) {
-                icon.classList.remove('lucide-align-right');
-                icon.classList.add('lucide-x');
+            if (icon.classList.contains('ph-list')) {
+                icon.classList.remove('ph-list');
+                icon.classList.add('ph-x');
             } else {
-                icon.classList.remove('lucide-x');
-                icon.classList.add('lucide-align-right');
+                icon.classList.remove('ph-x');
+                icon.classList.add('ph-list');
             }
         });
 
@@ -28,8 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 navMenu.classList.remove('open');
                 const icon = mobileToggle.querySelector('i');
                 if (icon) {
-                    icon.classList.remove('lucide-x');
-                    icon.classList.add('lucide-align-right');
+                    icon.classList.remove('ph-x');
+                    icon.classList.add('ph-list');
                 }
             });
         });
