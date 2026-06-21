@@ -59,7 +59,7 @@ function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* NAV */}
-      <header className={`fixed inset-x-0 top-0 z-40 transition-all duration-500 ${scrolled ? "bg-[color:var(--cream)]/95 backdrop-blur border-b border-[color:var(--gold)]/30 py-3" : "bg-transparent py-5"}`}>
+      <header className={`fixed inset-x-0 top-0 z-40 bg-[color:var(--cream)] border-b border-[color:var(--gold)]/30 transition-all duration-500 ${scrolled ? "py-3 shadow-sm" : "py-5"}`}>
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-5">
           <a href="#inicio" className="flex items-center gap-2">
             <img src={logo.url} alt="Che Malbec Mercado & Wine Bar" className="h-10 w-auto md:h-12" />
